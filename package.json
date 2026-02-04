@@ -1,0 +1,68 @@
+{
+    "name": "json-tools",
+    "displayName": "JSON Tools",
+    "description": "Simple VSCode extension to pretty print and minify JSON",
+    "version": "0.0.1",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/korov/json-tools.git"
+    },
+    "engines": {
+        "vscode": "^1.96.0"
+    },
+    "categories": [
+        "Formatters",
+        "Other"
+    ],
+    "activationEvents": [],
+    "main": "./out/extension.js",
+    "contributes": {
+        "commands": [
+            {
+                "command": "json-tools.pretty",
+                "title": "JSON Tools: Pretty Print"
+            },
+            {
+                "command": "json-tools.minify",
+                "title": "JSON Tools: Minify"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "command": "json-tools.pretty",
+                    "when": "editorLangId == json",
+                    "group": "1_modification"
+                },
+                {
+                    "command": "json-tools.minify",
+                    "when": "editorLangId == json",
+                    "group": "1_modification"
+                }
+            ]
+        },
+        "keybindings": [
+            {
+                "command": "json-tools.pretty",
+                "key": "ctrl+alt+m",
+                "mac": "cmd+alt+m",
+                "when": "editorLangId == json"
+            },
+            {
+                "command": "json-tools.minify",
+                "key": "alt+m",
+                "when": "editorLangId == json"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./"
+    },
+    "devDependencies": {
+        "@types/vscode": "^1.96.0",
+        "@types/node": "^20.0.0",
+        "typescript": "^5.0.0"
+    }
+}
