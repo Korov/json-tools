@@ -1,5 +1,6 @@
 {
     "name": "json-tools",
+    "publisher": "korov",
     "displayName": "JSON Tools",
     "description": "Simple VSCode extension to pretty print and minify JSON",
     "version": "0.0.2",
