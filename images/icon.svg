@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128" viewBox="0 0 128 128" role="img" aria-label="JSON Tools z icon">
+  <rect width="128" height="128" rx="24" fill="#1f2937"/>
+  <rect x="18" y="18" width="92" height="92" rx="14" fill="#f8fafc"/>
+
+  <g fill="#2563eb">
+    <rect x="38" y="39" width="9" height="18"/>
+    <rect x="38" y="80" width="9" height="18"/>
+    <rect x="46" y="39" width="14" height="9"/>
+    <rect x="46" y="89" width="14" height="9"/>
+    <rect x="46" y="62" width="14" height="9"/>
+    <rect x="46" y="66" width="14" height="9"/>
+    <circle cx="46" cy="57" r="8"/>
+    <circle cx="46" cy="80" r="8"/>
+
+    <rect x="81" y="39" width="9" height="18"/>
+    <rect x="81" y="80" width="9" height="18"/>
+    <rect x="73" y="39" width="14" height="9"/>
+    <rect x="73" y="89" width="14" height="9"/>
+    <rect x="73" y="62" width="14" height="9"/>
+    <rect x="73" y="66" width="14" height="9"/>
+    <circle cx="73" cy="57" r="8"/>
+    <circle cx="73" cy="80" r="8"/>
+  </g>
+
+  <rect x="57" y="82" width="27" height="8" rx="4" fill="#16a34a"/>
+  <polygon points="66,45 54,70 67,70 61,91 80,62 66,62 74,45" fill="#f59e0b"/>
+</svg>

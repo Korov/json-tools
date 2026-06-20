@@ -5,6 +5,7 @@
     "description": "Format and minify JSON while preserving large integer values",
     "version": "0.0.4",
     "license": "Apache-2.0",
+    "icon": "images/icon.png",
     "keywords": [
         "json",
         "formatter",
@@ -91,6 +92,7 @@
     "scripts": {
         "vscode:prepublish": "npm run compile",
         "compile": "tsc -p ./",
+        "generate:icon": "node scripts/generate-icon.js",
         "test": "npm run compile && node --test test/*.test.js",
         "watch": "tsc -watch -p ./"
     },
