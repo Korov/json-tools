@@ -64,7 +64,29 @@
                 "command": "json-tools.minify",
                 "key": "alt+m"
             }
-        ]
+        ],
+        "configuration": {
+            "title": "JSON Tools",
+            "properties": {
+                "jsonTools.indentSize": {
+                    "type": "number",
+                    "default": 4,
+                    "minimum": 1,
+                    "maximum": 8,
+                    "description": "Number of spaces used by the pretty print command."
+                },
+                "jsonTools.preserveLargeIntegers": {
+                    "type": "boolean",
+                    "default": true,
+                    "description": "Preserve integer literals outside JavaScript's safe integer range while formatting or minifying JSON."
+                },
+                "jsonTools.insertFinalNewline": {
+                    "type": "boolean",
+                    "default": false,
+                    "description": "Insert a final newline after formatting or minifying JSON."
+                }
+            }
+        }
     },
     "scripts": {
         "vscode:prepublish": "npm run compile",
