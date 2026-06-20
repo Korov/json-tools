@@ -43,6 +43,17 @@ The `id` value remains a JSON number literal instead of being rounded.
 - `JSON Tools: Minify`: Remove all whitespace from JSON.
   - `Alt+M`
 
+## Configuration
+
+The extension contributes these VS Code settings:
+
+- `jsonTools.indentSize`: Number of spaces used by the pretty print command.
+  Defaults to `4`.
+- `jsonTools.preserveLargeIntegers`: Preserve integer literals outside
+  JavaScript's safe integer range. Defaults to `true`.
+- `jsonTools.insertFinalNewline`: Insert a final newline after formatting or
+  minifying JSON. Defaults to `false`.
+
 ## Installation
 
 This extension can be installed from a packaged VSIX file during development:

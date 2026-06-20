@@ -2,11 +2,18 @@ const MAX_SAFE_INTEGER = 9007199254740991n;
 const PLACEHOLDER_PREFIX = '__JSON_TOOLS_BIGINT_PRESERVE_';
 const PLACEHOLDER_SUFFIX = '__';
 
-export function formatJsonText(text: string, indent: number): string {
-    const preprocessed = preprocessJson(text);
+export type FormatJsonOptions = {
+    indent: number;
+    preserveLargeIntegers: boolean;
+    insertFinalNewline: boolean;
+};
+
+export function formatJsonText(text: string, options: FormatJsonOptions): string {
+    const preprocessed = options.preserveLargeIntegers ? preprocessJson(text) : text;
     const jsonObj = JSON.parse(preprocessed);
-    const formatted = indent > 0 ? JSON.stringify(jsonObj, null, indent) : JSON.stringify(jsonObj);
-    return postprocessJson(formatted);
+    const formatted = options.indent > 0 ? JSON.stringify(jsonObj, null, options.indent) : JSON.stringify(jsonObj);
+    const postprocessed = options.preserveLargeIntegers ? postprocessJson(formatted) : formatted;
+    return options.insertFinalNewline ? appendFinalNewline(postprocessed) : postprocessed;
 }
 
 export function preprocessJson(text: string): string {
@@ -34,4 +41,8 @@ export function preprocessJson(text: string): string {
 export function postprocessJson(text: string): string {
     const restoreRegex = new RegExp(`"${PLACEHOLDER_PREFIX}(-?\\d+)${PLACEHOLDER_SUFFIX}"`, 'g');
     return text.replace(restoreRegex, '$1');
+}
+
+function appendFinalNewline(text: string): string {
+    return text.endsWith('\n') ? text : `${text}\n`;
 }
