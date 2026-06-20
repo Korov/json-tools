@@ -66,6 +66,23 @@ npx @vscode/vsce package
 Then install the generated `.vsix` file with VS Code's "Install from VSIX..."
 command.
 
+## Release packaging
+
+Marketplace release assets live in `images/`. The extension manifest uses
+`images/icon.png` as the published icon, and `images/icon.svg` is kept as the
+editable source artwork.
+
+Before publishing a release, run:
+
+```bash
+npm test
+npx @vscode/vsce package
+```
+
+The `.vscodeignore` file excludes source-only files, tests, CI configuration,
+generated source maps, local editor settings, and old `.vsix` packages from the
+published extension archive.
+
 ## Development
 
 ```bash
