@@ -2,8 +2,9 @@
 
 All notable changes to JSON Tools z will be documented in this file.
 
-## 0.0.4
+## 0.0.5
 
+- Add JSON5 parsing and normalized JSON5 output.
 - Preserve large integer literals when formatting or minifying JSON.
 - Add automated tests for large integer handling.
 - Add GitHub Actions CI.
