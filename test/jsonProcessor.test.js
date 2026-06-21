@@ -80,3 +80,39 @@ test('can insert a final newline', () => {
         '{\n    "name": "example"\n}\n'
     );
 });
+
+test('formats JSON5 input as JSON5 when standard JSON parsing fails', () => {
+    const input = "{\n // user\n id:9007199254740993123,\n name:'alice',\n}";
+
+    assert.equal(
+        formatJsonText(input, defaultOptions),
+        "{\n    id: 9007199254740993123,\n    name: 'alice',\n}"
+    );
+});
+
+test('minifies JSON5 input as JSON5', () => {
+    const input = "{id:9007199254740993123,name:'alice',}";
+
+    assert.equal(
+        formatJsonText(input, { ...defaultOptions, indent: 0 }),
+        "{id:9007199254740993123,name:'alice'}"
+    );
+});
+
+test('does not replace large integer text inside JSON5 strings or keys', () => {
+    const input = "{id:'9007199254740993123',key9007199254740993123:1}";
+
+    assert.equal(
+        formatJsonText(input, defaultOptions),
+        "{\n    id: '9007199254740993123',\n    key9007199254740993123: 1,\n}"
+    );
+});
+
+test('preserves JSON5 signed and hexadecimal large integers', () => {
+    const input = '{id:+9007199254740993123,hex:0x20000000000001}';
+
+    assert.equal(
+        formatJsonText(input, defaultOptions),
+        '{\n    id: +9007199254740993123,\n    hex: 0x20000000000001,\n}'
+    );
+});

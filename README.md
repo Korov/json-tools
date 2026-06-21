@@ -1,16 +1,19 @@
 # JSON Tools z
 
-JSON Tools z is a small VS Code extension for formatting and minifying JSON.
+JSON Tools z is a small VS Code extension for formatting and minifying JSON or
+JSON5.
 It focuses on one practical edge case that generic JSON formatters can get
 wrong in JavaScript: preserving integer values that are larger than
 `Number.MAX_SAFE_INTEGER`.
 
 ## Features
 
-- Pretty print JSON with 4-space indentation.
-- Minify JSON by removing unnecessary whitespace.
-- Preserve large integer literals while formatting or minifying JSON.
+- Pretty print JSON or JSON5 with 4-space indentation.
+- Minify JSON or JSON5 by removing unnecessary whitespace.
+- Preserve large integer literals while formatting or minifying JSON or JSON5.
 - Format the selected range, or the whole document when nothing is selected.
+- Keep standard JSON input as standard JSON output, and format JSON5 input as
+  JSON5 when standard JSON parsing fails.
 
 ## Why large integer preservation matters
 
@@ -92,14 +95,16 @@ npm run compile
 
 For extension debugging, open this repository in VS Code and press `F5`.
 
-## Project status
+## JSON5 support
 
-The extension currently supports standard JSON. JSON5 features such as comments,
-trailing commas, and unquoted property names are not supported yet.
+The extension first tries to parse input as standard JSON. If that fails, it
+falls back to JSON5 and emits normalized JSON5 output. JSON5 comments and
+original token-level style are not preserved because formatting is based on
+parse/stringify output.
 
-Planned maintenance work includes automated tests for large integer handling,
-GitHub Actions CI, Marketplace release assets, and configurable formatting
-options.
+Supported JSON5 input includes common JSON5 syntax such as comments, trailing
+commas, single-quoted strings, unquoted property names, signed numbers, and
+hexadecimal numbers.
 
 ## Contributing
 

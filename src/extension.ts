@@ -85,7 +85,7 @@ function formatInvalidJsonMessage(error: unknown, range: vscode.Range, index: nu
         ? `selection ${index + 1} at ${formatPosition(range.start)}`
         : `input at ${formatPosition(range.start)}`;
 
-    return `Invalid JSON in ${location}: ${reason}`;
+    return `Invalid JSON or JSON5 in ${location}: ${reason}`;
 }
 
 function formatPosition(position: vscode.Position): string {

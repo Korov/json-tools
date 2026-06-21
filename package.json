@@ -2,12 +2,13 @@
     "name": "json-tools-z",
     "publisher": "korov",
     "displayName": "JSON Tools z",
-    "description": "Format and minify JSON while preserving large integer values",
-    "version": "0.0.5",
+    "description": "Format and minify JSON or JSON5 while preserving large integer values",
+    "version": "0.0.6",
     "license": "Apache-2.0",
     "icon": "images/icon.png",
     "keywords": [
         "json",
+        "json5",
         "formatter",
         "minify",
         "bigint",
@@ -97,8 +98,11 @@
         "watch": "tsc -watch -p ./"
     },
     "devDependencies": {
-        "@types/vscode": "^1.96.0",
         "@types/node": "^20.0.0",
+        "@types/vscode": "^1.96.0",
         "typescript": "^5.0.0"
+    },
+    "dependencies": {
+        "json5": "^2.2.3"
     }
 }
