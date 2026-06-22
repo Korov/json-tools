@@ -106,6 +106,13 @@ Supported JSON5 input includes common JSON5 syntax such as comments, trailing
 commas, single-quoted strings, unquoted property names, signed numbers, and
 hexadecimal numbers.
 
+## Feedback and support
+
+Please report bugs, formatting surprises, and feature requests in
+[GitHub Issues](https://github.com/Korov/json-tools/issues). When reporting a
+formatting problem, include the input text, the expected output, and the actual
+output so the behavior can be reproduced.
+
 ## Contributing
 
 Issues and pull requests are welcome. Please see
