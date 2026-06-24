@@ -86,6 +86,17 @@ The `.vscodeignore` file excludes source-only files, tests, CI configuration,
 generated source maps, local editor settings, and old `.vsix` packages from the
 published extension archive.
 
+GitHub Releases are published automatically when a version tag is pushed. The
+tag must match the `package.json` version:
+
+```bash
+git tag v0.0.6
+git push origin v0.0.6
+```
+
+The release workflow runs tests, packages the extension, and uploads the
+generated `.vsix` file to the GitHub Release.
+
 ## Development
 
 ```bash
