@@ -40,6 +40,7 @@ function processJson(editor: vscode.TextEditor, mode: FormatMode) {
         textRanges = [new vscode.Range(0, 0, document.lineCount, 0)];
     }
 
+    const revealPosition = textRanges[0].start;
     const replacements: JsonReplacement[] = [];
     for (const [index, range] of textRanges.entries()) {
         const text = document.getText(range);
@@ -58,6 +59,14 @@ function processJson(editor: vscode.TextEditor, mode: FormatMode) {
         replacements.forEach(replacement => {
             editBuilder.replace(replacement.range, replacement.text);
         });
+    }).then(success => {
+        if (!success) {
+            return;
+        }
+
+        const revealRange = new vscode.Range(revealPosition, revealPosition);
+        editor.selection = new vscode.Selection(revealPosition, revealPosition);
+        editor.revealRange(revealRange, vscode.TextEditorRevealType.AtTop);
     });
 }
 

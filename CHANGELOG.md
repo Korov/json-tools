@@ -2,6 +2,10 @@
 
 All notable changes to JSON Tools z will be documented in this file.
 
+## 0.0.8
+
+- Move the cursor and viewport to the formatted range start after formatting.
+
 ## 0.0.5
 
 - Add JSON5 parsing and normalized JSON5 output.
